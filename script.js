@@ -12,7 +12,7 @@ searchButton.addEventListener('click', () => {
         return;
     }
 
-    const Weather_API_URL = `http://api.openweathermap.org/geo/1.0/direct?q=${cityName}&limit=1&appid=${API_key}`;
+    const Weather_API_URL = `https://api.openweathermap.org/geo/1.0/direct?q=${cityName}&limit=1&appid=${API_key}`;
     fetch(Weather_API_URL)
         .then(response => response.json())
         .then(data => getWeatherInfo(data[0].name, data[0].lat, data[0].lon))
@@ -56,7 +56,7 @@ const getUserCoordinates = () => {
 
 // Fetch weather information
 function getWeatherInfo(cityName, latitude, longitude) {
-    const Weather_API_URL = `http://api.openweathermap.org/data/2.5/forecast?lat=${latitude}&lon=${longitude}&appid=${API_key}`;
+    const Weather_API_URL = `https://api.openweathermap.org/data/2.5/forecast?lat=${latitude}&lon=${longitude}&appid=${API_key}`;
     fetch(Weather_API_URL)
         .then(response => response.json())
         .then(data => selectDates(cityName, data))
